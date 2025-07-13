@@ -1,1 +1,1 @@
-rootProject.name = "task-tracker"
+rootProject.name = "task-tracker-backend"
