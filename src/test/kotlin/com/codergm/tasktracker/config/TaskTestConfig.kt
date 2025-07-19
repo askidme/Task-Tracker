@@ -1,8 +1,5 @@
 package com.codergm.tasktracker.config
 
-import org.junit.jupiter.api.BeforeEach
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.cache.CacheManager
 import org.springframework.test.context.DynamicPropertyRegistry
 import org.springframework.test.context.DynamicPropertySource
 import org.testcontainers.containers.PostgreSQLContainer
@@ -11,19 +8,6 @@ import org.testcontainers.junit.jupiter.Testcontainers
 
 @Testcontainers
 abstract class TaskTestConfig {
-
-    @Autowired
-    lateinit var cacheManager: CacheManager
-
-    @BeforeEach
-    fun clearCache() {
-        cacheManager.cacheNames.forEach { name ->
-            cacheManager.getCache(name)?.also {
-                it.clear()
-                println("✅ Cleared cache: $name")
-            }
-        }
-    }
 
     companion object {
         @Container
