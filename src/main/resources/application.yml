@@ -26,5 +26,15 @@ logging:
     org.springdoc: INFO
     org.springframework.web: INFO
     org.springframework.boot.autoconfigure: INFO
-
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,info,loggers, prometheus"
+otel:
+  exporter:
+    otlp:
+      endpoint: http://localhost:4317
+      compression: gzip
+      protocol: grpc
 
